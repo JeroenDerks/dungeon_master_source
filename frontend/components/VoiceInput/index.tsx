@@ -26,6 +26,7 @@ export const VoiceInput = () => {
     );
     speechRecognizer.recognizing = (s, e) => {
       console.log(`RECOGNIZING: Text=${e.result.text}`);
+      setText(e.result.text);
     };
 
     speechRecognizer.recognized = (s, e) => {
