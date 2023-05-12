@@ -61,7 +61,14 @@ export function initThree() {
     scene.add(mesh);
     console.log("mesh", mesh);
 
+<<<<<<< Updated upstream
     let morphTargetMeshes = [];
+=======
+      const mesh = object.children[1]
+      const head = mesh?.getObjectByName("neutral") as THREE.SkinnedMesh;
+      // @ts-ignore
+      const influences = mesh?.morphTargetInfluences;
+>>>>>>> Stashed changes
 
     gltf.scene.traverse((node) => {
       if (node.isMesh && node.name.startsWith("LOD0_3_")) {
@@ -121,6 +128,42 @@ export function initThree() {
   //         .listen(influences);
   //     }
   //   });
+
+  // const fbxLoader1 = new FBXLoader();
+  // fbxLoader1.load(
+  //   "1sm_wiz_nolight.fbx",
+  //   (object) => {
+  //     object.scale.set(0.01, 0.01, 0.01);
+
+  //     console.log(object);
+
+  //     const mesh = object.children[0]
+  //     const head = mesh?.getObjectByName("neutral") as THREE.SkinnedMesh;
+  //     // @ts-ignore
+  //     const influences = mesh?.morphTargetInfluences;
+
+  //     const gui = new GUI();
+  //     gui.close();
+
+  //     mixer = new THREE.AnimationMixer(object);
+  //     // @ts-ignore
+  //     for (const [key, value] of Object.entries(head.morphTargetDictionary)) {
+  //       console.log(key, value);
+  //       gui
+  //         .add(influences, value, 0, 1, 0.01)
+  //         .name(key.replace("blendShape1.", ""))
+  //         .listen(influences);
+  //     }
+
+  //     scene.add(object);
+  //   },
+  //   (xhr) => {
+  //     console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+  //   },
+  //   (error) => {
+  //     console.log(error);
+  //   }
+  // );
 
   const environment = new RoomEnvironment();
   const pmremGenerator = new THREE.PMREMGenerator(renderer);
