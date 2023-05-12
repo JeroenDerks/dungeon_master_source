@@ -61,14 +61,10 @@ export function initThree() {
     scene.add(mesh);
     console.log("mesh", mesh);
 
-<<<<<<< Updated upstream
-    let morphTargetMeshes = [];
-=======
       const mesh = object.children[1]
       const head = mesh?.getObjectByName("neutral") as THREE.SkinnedMesh;
       // @ts-ignore
       const influences = mesh?.morphTargetInfluences;
->>>>>>> Stashed changes
 
     gltf.scene.traverse((node) => {
       if (node.isMesh && node.name.startsWith("LOD0_3_")) {
