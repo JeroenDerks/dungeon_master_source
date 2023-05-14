@@ -44,8 +44,6 @@ export const WrittenInput = () => {
       ssml,
       (result) => {
         if (result) {
-<<<<<<< Updated upstream
-=======
           const key = "FBHead001.morphTargetInfluences";
           times.push(times[times.length - 1] + times[1]);
           values.push(...Array.from({ length: 52 }, () => 0));
@@ -60,7 +58,6 @@ export const WrittenInput = () => {
 
           animation.reset().play();
 
->>>>>>> Stashed changes
           speechSynthesizer.close();
         }
       },
