@@ -44,7 +44,7 @@ export const WrittenInput = () => {
       ssml,
       (result) => {
         if (result) {
-          const key = "FBHead001.morphTargetInfluences";
+          const key = "FBHead.morphTargetInfluences";
           times.push(times[times.length - 1] + times[1]);
           values.push(...Array.from({ length: 52 }, () => 0));
           const track = new THREE.NumberKeyframeTrack(key, times, values);

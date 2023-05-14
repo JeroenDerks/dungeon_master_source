@@ -28,7 +28,7 @@ export const blendShapeToAnimation = (blendData: BlendData) => {
 
   times.push(times[times.length - 1] + times[1]);
   const customTrack = new THREE.NumberKeyframeTrack(
-    "mesh_2.morphTargetInfluences",
+    "FBHead.morphTargetInfluences",
     times,
     values
   );

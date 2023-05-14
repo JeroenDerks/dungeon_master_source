@@ -56,60 +56,56 @@ export function initThree() {
     .setTranscoderPath("/textures/basis/")
     .detectSupport(renderer);
 
-  const fbxLoader = new FBXLoader();
-  fbxLoader.load(
-    "wizard_head.fbx",
-    (object) => {
-      object.scale.set(0.001, 0.001, 0.001);
+  // const fbxLoader = new FBXLoader();
+  // fbxLoader.load(
+  //   "sjorstest.fbx",
+  //   (object) => {
+  //     object.scale.set(0.001, 0.001, 0.001);
 
-      const mesh = object.children[0]; //.find(({ type }) => type === "SkinnedMesh");
-      const head = mesh?.getObjectByName("FBHead001") as THREE.SkinnedMesh;
-      // @ts-ignore
+  //     const mesh = object.children[0]; //.find(({ type }) => type === "SkinnedMesh");
+  //     const head = mesh?.getObjectByName("FBHead001") as THREE.SkinnedMesh;
+  //     // @ts-ignore
+  //     const influences = mesh?.morphTargetInfluences;
+
+  //     const gui = new GUI();
+  //     gui.close();
+    
+  //     for (const [key, value] of Object.entries(FBHead001.morphTargetDictionary)) {
+  //       console.log(key, value);
+  //       gui
+  //         .add(influences, value, 0, 1, 0.01)
+  //         .name(key.replace("blendShape1.", ""))
+  //         .listen(influences);
+  //     }
+  //   }
+  // )
+
+  new GLTFLoader()
+    .setKTX2Loader(ktx2Loader)
+    .setMeshoptDecoder(MeshoptDecoder)
+    .load("sjors_test.glb", (gltf: any) => {
+      console.log("gltf", gltf);
+
+      const mesh = gltf.scene.children[0];
+      scene.add(mesh);
+      console.log("mesh", mesh);
+      mixer = new THREE.AnimationMixer(mesh);
+
+      // mixer.clipAction(zeroClip).play();
+      // GUI
+  //     // @ts-ignore
       const influences = mesh?.morphTargetInfluences;
-
       const gui = new GUI();
       gui.close();
-    
-      for (const [key, value] of Object.entries(FBHead001.morphTargetDictionary)) {
+
+      for (const [key, value] of Object.entries(mesh.morphTargetDictionary)) {
         console.log(key, value);
         gui
           .add(influences, value, 0, 1, 0.01)
           .name(key.replace("blendShape1.", ""))
           .listen(influences);
       }
-    }
-  )
-
-  // new GLTFLoader()
-  //   .setKTX2Loader(ktx2Loader)
-  //   .setMeshoptDecoder(MeshoptDecoder)
-  //   .load("_wizard_BS_RIGGED.glb", (gltf: any) => {
-  //     console.log("gltf", gltf);
-
-  //     const mesh = gltf.scene.children[0];
-  //     scene.add(mesh);
-  //     console.log("mesh", mesh);
-  //     mixer = new THREE.AnimationMixer(mesh);
-
-  //     // mixer.clipAction(zeroClip).play();
-  //     // GUI
-
-  //     //     morphTargetMesh = mesh;
-
-      
-  //     //       const head = morphTargetMesh;
-  //     // const influences = head.morphTargetInfluences;
-  //     // const gui = new GUI();
-  //     // gui.close();
-
-  //     // for (const [key, value] of Object.entries(head.morphTargetDictionary)) {
-  //     //   console.log(key, value);
-  //     //   gui
-  //     //     .add(influences, value, 0, 1, 0.01)
-  //     //     .name(key.replace("blendShape1.", ""))
-  //     //     .listen(influences);
-  //     // }
-  //   });
+    });
 
   // const fbxLoader1 = new FBXLoader();
   // fbxLoader1.load(
