@@ -44,6 +44,23 @@ export const WrittenInput = () => {
       ssml,
       (result) => {
         if (result) {
+<<<<<<< Updated upstream
+=======
+          const key = "FBHead001.morphTargetInfluences";
+          times.push(times[times.length - 1] + times[1]);
+          values.push(...Array.from({ length: 52 }, () => 0));
+          const track = new THREE.NumberKeyframeTrack(key, times, values);
+          const clip = new THREE.AnimationClip("blink", -1, [track]);
+
+          let animation = mixer.clipAction(clip);
+
+          animation.setLoop(THREE.LoopOnce);
+          animation.clampWhenFinished = true;
+          animation.enable = true;
+
+          animation.reset().play();
+
+>>>>>>> Stashed changes
           speechSynthesizer.close();
         }
       },
