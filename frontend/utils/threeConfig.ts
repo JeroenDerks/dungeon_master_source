@@ -83,7 +83,7 @@ export function initThree() {
   new GLTFLoader()
     .setKTX2Loader(ktx2Loader)
     .setMeshoptDecoder(MeshoptDecoder)
-    .load("sjors_test.glb", (gltf: any) => {
+    .load("stuart_Head_2.glb", (gltf: any) => {
       console.log("gltf", gltf);
 
       const mesh = gltf.scene.children[0];

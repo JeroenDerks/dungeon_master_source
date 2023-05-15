@@ -21,7 +21,7 @@ export const blendShapeToAnimation = (blendData: BlendData) => {
 
       const index = facecapModel[newKey] + i * 52;
       if (index >= 0) {
-        values[index] = blendData[i].blendShapes[key] * 2;
+        values[index] = blendData[i].blendShapes[key] * 2.5;
       }
     });
   });
